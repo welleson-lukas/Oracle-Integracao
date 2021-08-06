@@ -21,6 +21,7 @@ def query_fornecedor():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
+    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -32,12 +33,13 @@ def query_fornecedor():
 def query_produto():
     cur, con = conn_db()
 
-    cur.execute("select pcprodut.codfornec,pcprodut.codprod,pcprodut.descricao,pcprodut.nbm ncm,pcprodut.codauxiliar ean,pcmarca.marca,pcprodut.embalagem,pcprodut.qtunitcx,pcprodut.pesoliq,pcprodut.codfab,pcprodut.codepto,pcdepto.descricao departamento,pcprodut.codsec,pcsecao.descricao secao,pcprincipativo.descricao principio_ativo from pcprodut, pcmarca, pcdepto, pcsecao, pcprincipativo, pcfornec where pcprodut.codmarca = pcmarca.codmarca and pcprodut.codepto = pcdepto.codepto and pcprodut.codsec = pcsecao.codsec and pcprodut.codfornec = pcfornec.codfornec and pcprodut.codprincipativo = pcprincipativo.codprincipativo(+)")
+    cur.execute("select pcprodut.codfornec,pcprodut.codprod,pcprodut.descricao,pcprodut.nbm ncm,pcprodut.codauxiliar ean,pcmarca.marca,pcprodut.embalagem,pcprodut.qtunitcx,pcprodut.pesoliq,pcprodut.codfab,pcprodut.codepto,pcdepto.descricao departamento,pcprodut.codsec,pcsecao.descricao secao,pcprincipativo.descricao principio_ativo from pcprodut, pcmarca, pcdepto, pcsecao, pcprincipativo, pcfornec where pcprodut.codmarca = pcmarca.codmarca(+) and pcprodut.codepto = pcdepto.codepto(+) and pcprodut.codsec = pcsecao.codsec(+) and pcprodut.codfornec = pcfornec.codfornec(+) and pcprodut.codprincipativo = pcprincipativo.codprincipativo(+)")
 
     lista = []
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
+    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -56,6 +58,7 @@ def query_historico():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
+    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -74,6 +77,7 @@ def query_venda():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
+    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -92,6 +96,7 @@ def query_entrada():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
+    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -109,6 +114,7 @@ def query_pedido():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
+    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -126,6 +132,7 @@ def query_estoque():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
+    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
