@@ -32,9 +32,9 @@ def send_fornecedor():
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
-                print("RECONECTANDO EM 10 SEGUNDOS")
+                print("RECONECTANDO EM 30 SEGUNDOS")
 
-                time.sleep(10)
+                time.sleep(30)
 
                 response = requests.post(url=url, headers=headers, data=data)
                 print(response.status_code, response.text)
@@ -72,9 +72,9 @@ def send_produto():
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
-                print("RECONECTANDO EM 10 SEGUNDOS")
+                print("RECONECTANDO EM 30 SEGUNDOS")
 
-                time.sleep(10)
+                time.sleep(30)
 
                 response = requests.post(url=url, headers=headers, data=data)
                 print(response.status_code, response.text)
@@ -112,9 +112,9 @@ def send_historico():
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
-                print("RECONECTANDO EM 10 SEGUNDOS")
+                print("RECONECTANDO EM 30 SEGUNDOS")
 
-                time.sleep(10)
+                time.sleep(30)
 
                 response = requests.post(url=url, headers=headers, data=data)
                 print(response.status_code, response.text)
@@ -152,9 +152,9 @@ def send_vendas():
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
-                print("RECONECTANDO EM 10 SEGUNDOS")
+                print("RECONECTANDO EM 30 SEGUNDOS")
 
-                time.sleep(10)
+                time.sleep(30)
 
                 response = requests.post(url=url, headers=headers, data=data)
                 print(response.status_code, response.text)
@@ -192,9 +192,9 @@ def send_entrada():
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
-                print("RECONECTANDO EM 10 SEGUNDOS")
+                print("RECONECTANDO EM 30 SEGUNDOS")
 
-                time.sleep(10)
+                time.sleep(30)
 
                 response = requests.post(url=url, headers=headers, data=data)
                 print(response.status_code, response.text)
@@ -232,9 +232,9 @@ def send_pedidos():
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
-                print("RECONECTANDO EM 10 SEGUNDOS")
+                print("RECONECTANDO EM 30 SEGUNDOS")
 
-                time.sleep(10)
+                time.sleep(30)
 
                 response = requests.post(url=url, headers=headers, data=data)
                 print(response.status_code, response.text)
@@ -272,9 +272,9 @@ def send_estoque():
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
-                print("RECONECTANDO EM 10 SEGUNDOS")
+                print("RECONECTANDO EM 30 SEGUNDOS")
 
-                time.sleep(10)
+                time.sleep(30)
 
                 response = requests.post(url=url, headers=headers, data=data)
                 print(response.status_code, response.text)
