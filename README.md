@@ -7,3 +7,15 @@ Para utilizar o projeto é necessário instalar as dependências, você pode apo
 ```
 # pip install -r requirements.txt
 ```
+
+# Executar script - Windows
+```
+# python.exe main.py
+```
+ 
+# Executar script - Linux
+```
+# python main.py
+```
+ 
+

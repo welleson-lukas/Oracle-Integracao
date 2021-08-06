@@ -1,4 +1,12 @@
-
+.idea/
+/.idea
+.idea/.gitignore
+.idea/ClimaApp.iml
+.idea/IntegracaoOracle.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
 # Created by https://www.toptal.com/developers/gitignore/api/python,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,pycharm
 

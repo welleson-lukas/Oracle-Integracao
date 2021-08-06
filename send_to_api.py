@@ -2,9 +2,10 @@ import requests
 import json
 from processing_data import *
 from login_api import *
+import time
 
 
-# FORNECEDOR
+# FORNECEDORES
 def send_fornecedor():
     dados = tratando_fornecedor()
     token = login_api()
@@ -23,12 +24,25 @@ def send_fornecedor():
     if response.status_code == 200:
         for i in dados:
             data = json.dumps(i)
-            response = requests.post(url=url, headers=headers, data=data)
-            print(response.status_code, response.text)
-            print(data)
+
+            try:
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
+            except requests.ConnectionError:
+                print("SEM CONEXÃO COM O SERVIDOR")
+                print("RECONECTANDO EM 10 SEGUNDOS")
+
+                time.sleep(10)
+
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
         return response.status_code
     else:
-        token = login_api()
+        print('NÃO FOI POSSÍVEL CONECTAR AO SERVIDOR')
 
 
 # PRODUTOS
@@ -50,21 +64,34 @@ def send_produto():
     if response.status_code == 200:
         for i in dados:
             data = json.dumps(i)
-            response = requests.post(url=url, headers=headers, data=data)
-            print(response.status_code, response.text)
-            print(data)
+
+            try:
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
+            except requests.ConnectionError:
+                print("SEM CONEXÃO COM O SERVIDOR")
+                print("RECONECTANDO EM 10 SEGUNDOS")
+
+                time.sleep(10)
+
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
         return response.status_code
     else:
-        token = login_api()
+        print('NÃO FOI POSSÍVEL CONECTAR AO SERVIDOR')
 
 
-# ESTOQUE ATUAL
-def send_estoque():
-    dados = tratando_estoque()
+# HISTORICO
+def send_historico():
+    dados = tratando_historico()
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'http://177.136.201.66/api/estoque-atual/'
+    url = 'http://177.136.201.66/api/historico-estoque/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -77,21 +104,34 @@ def send_estoque():
     if response.status_code == 200:
         for i in dados:
             data = json.dumps(i)
-            response = requests.post(url=url, headers=headers, data=data)
-            print(response.status_code, response.text)
-            print(data)
+
+            try:
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
+            except requests.ConnectionError:
+                print("SEM CONEXÃO COM O SERVIDOR")
+                print("RECONECTANDO EM 10 SEGUNDOS")
+
+                time.sleep(10)
+
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
         return response.status_code
     else:
-        token = login_api()
+        print('NÃO FOI POSSÍVEL CONECTAR AO SERVIDOR')
 
 
-# PEDIDOS
-def send_pedidos():
-    dados = tratando_pedidos()
+# VENDAS
+def send_vendas():
+    dados = tratando_venda()
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'http://177.136.201.66/api/pedido-compra/'
+    url = "http://177.136.201.66/api/venda/"
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -101,16 +141,28 @@ def send_pedidos():
 
     response = requests.get(url=url, headers=headers)
 
-
     if response.status_code == 200:
         for i in dados:
             data = json.dumps(i)
-            response = requests.post(url=url, headers=headers, data=data)
-            print(response.status_code, response.text)
-            print(data)
+
+            try:
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
+            except requests.ConnectionError:
+                print("SEM CONEXÃO COM O SERVIDOR")
+                print("RECONECTANDO EM 10 SEGUNDOS")
+
+                time.sleep(10)
+
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
         return response.status_code
     else:
-        token = login_api()
+        print('NÃO FOI POSSÍVEL CONECTAR AO SERVIDOR')
 
 
 # ENTRADAS
@@ -132,21 +184,34 @@ def send_entrada():
     if response.status_code == 200:
         for i in dados:
             data = json.dumps(i)
-            response = requests.post(url=url, headers=headers, data=data)
-            print(response.status_code, response.text)
-            print(data)
+
+            try:
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
+            except requests.ConnectionError:
+                print("SEM CONEXÃO COM O SERVIDOR")
+                print("RECONECTANDO EM 10 SEGUNDOS")
+
+                time.sleep(10)
+
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
         return response.status_code
     else:
-        token = login_api()
+        print('NÃO FOI POSSÍVEL CONECTAR AO SERVIDOR')
 
 
-#VENDAS
-def send_vendas():
-    dados = tratando_venda()
+# PEDIDOS
+def send_pedidos():
+    dados = tratando_pedidos()
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = "http://177.136.201.66/api/venda/"
+    url = 'http://177.136.201.66/api/pedido-compra/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -159,21 +224,34 @@ def send_vendas():
     if response.status_code == 200:
         for i in dados:
             data = json.dumps(i)
-            response = requests.post(url=url, headers=headers, data=data)
-            print(response.status_code, response.text)
-            print(data)
+
+            try:
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
+            except requests.ConnectionError:
+                print("SEM CONEXÃO COM O SERVIDOR")
+                print("RECONECTANDO EM 10 SEGUNDOS")
+
+                time.sleep(10)
+
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
         return response.status_code
     else:
-        token = login_api()
+        print('NÃO FOI POSSÍVEL CONECTAR AO SERVIDOR')
 
 
-# HISTORICO
-def send_historico():
-    dados = tratando_historico()
+# ESTOQUE ATUAL
+def send_estoque():
+    dados = tratando_estoque()
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'http://177.136.201.66/api/historico-estoque/'
+    url = 'http://177.136.201.66/api/estoque-atual/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -183,13 +261,25 @@ def send_historico():
 
     response = requests.get(url=url, headers=headers)
 
-
     if response.status_code == 200:
         for i in dados:
             data = json.dumps(i)
-            response = requests.post(url=url, headers=headers, data=data)
-            print(response.status_code, response.text)
-            print(data)
+
+            try:
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
+            except requests.ConnectionError:
+                print("SEM CONEXÃO COM O SERVIDOR")
+                print("RECONECTANDO EM 10 SEGUNDOS")
+
+                time.sleep(10)
+
+                response = requests.post(url=url, headers=headers, data=data)
+                print(response.status_code, response.text)
+                print(data)
+
         return response.status_code
     else:
-        token = login_api()
+        print('NÃO FOI POSSÍVEL CONECTAR AO SERVIDOR')
