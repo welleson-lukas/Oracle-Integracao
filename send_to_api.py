@@ -22,7 +22,7 @@ def send_fornecedor():
     response = requests.get(url=url, headers=headers)
 
     if response.status_code == 200:
-        for i in dados:
+        for i in dados:            
             data = json.dumps(i)
 
             try:
