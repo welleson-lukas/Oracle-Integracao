@@ -9,7 +9,7 @@ def tratando_fornecedor():
     fornecedor_df.columns = ["cod_fornecedor", "desc_fornecedor", "cnpj", "iestadual"]
 
     # TODO EMPRESA
-    fornecedor_df['empresa'] = 1
+    fornecedor_df['empresa'] = 3
 
     fornecedor = fornecedor_df.assign(**fornecedor_df.select_dtypes(["datetime"]).astype(str).to_dict("list")).to_dict("records")
 
@@ -22,7 +22,7 @@ def tratando_produto():
     df_produtos.columns = ["cod_fornecedor", "cod_produto", "desc_produto", "cod_ncm", "cod_auxiliar", "marca", "embalagem", "quantidade_un_cx",  "peso_liquido", "cod_fabrica", "cod_depto", "desc_departamento", "cod_sec", "desc_secao", "principio_ativo"]
 
     # TODO EMPRESA
-    df_produtos['empresa'] = 1
+    df_produtos['empresa'] = 3
 
     produtos_dic = df_produtos.assign(**df_produtos.select_dtypes(["datetime"]).astype(str).to_dict("list")).to_dict(
         "records")
@@ -41,7 +41,7 @@ def tratando_historico():
     historico_df = hist_estoque_df
 
     # TODO EMPRESA
-    historico_df['empresa'] = 1
+    historico_df['empresa'] = 3
 
     historico = historico_df.assign(**historico_df.select_dtypes(["datetime"]).astype(str).to_dict("list")).to_dict(
         "records")
@@ -59,7 +59,7 @@ def tratando_venda():
     vendas_df['data'] = pd.to_datetime(vendas_df['data'])
 
     # TODO EMPRESA
-    vendas_df['empresa'] = 1
+    vendas_df['empresa'] = 3
 
     vendas_dic = vendas_df.assign(**vendas_df.select_dtypes(["datetime"]).astype(str).to_dict("list")).to_dict("records")
 
@@ -75,7 +75,7 @@ def tratando_entrada():
     ultima_entrada_df.fillna(0, inplace=True)
 
     # TODO EMPRESA
-    ultima_entrada_df['empresa'] = 1
+    ultima_entrada_df['empresa'] = 3
 
     entradas = ultima_entrada_df.assign(**ultima_entrada_df.select_dtypes(["datetime"]).astype(str).to_dict("list")).to_dict(
         "records")
@@ -93,7 +93,7 @@ def tratando_pedidos():
     pedidos_df = df_pedidos_compras
 
     # TODO EMPRESA
-    pedidos_df['empresa'] = 1
+    pedidos_df['empresa'] = 3
 
     p_compras = pedidos_df.assign(**pedidos_df.select_dtypes(["datetime"]).astype(str).to_dict("list")).to_dict("records")
 
@@ -114,7 +114,7 @@ def tratando_estoque():
     estoque_atual_df['data'] = pd.to_datetime(estoque_atual_df['data'])
 
     #TODO EMPRESA
-    estoque_atual_df['empresa'] = 1
+    estoque_atual_df['empresa'] = 3
 
     estoque_atual = estoque_atual_df.assign(**estoque_atual_df.select_dtypes(["datetime"]).astype(str).to_dict("list")
                                             ).to_dict("records")
