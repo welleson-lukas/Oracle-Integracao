@@ -57,6 +57,7 @@ def tratando_venda():
     # vendas_df['preco_unit'] = vendas_df['preco_unit'].replace(",", ".", regex=True).astype(float).round(3)
     # vendas_df['custo_fin'] = vendas_df['custo_fin'].replace(",", ".", regex=True).astype(float).round(3)
     vendas_df['data'] = pd.to_datetime(vendas_df['data'])
+    vendas_df['qt_venda'].fillna(0, inplace=True)
 
     # TODO EMPRESA
     vendas_df['empresa'] = 3
