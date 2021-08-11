@@ -34,9 +34,7 @@ def tratando_produto():
 def tratando_historico():
     hist_estoque_df = query_historico()
     hist_estoque_df.columns = ["cod_produto", "data", "qt_estoque", "cod_filial", "cod_fornecedor"]
-    # hist_estoque_df['qt_estoque'] = hist_estoque_df['qt_estoque'].replace(",", ".", regex=True).astype(int).round(3)
     hist_estoque_df['data'] = pd.to_datetime(hist_estoque_df['data'])
-    hist_estoque_df.fillna(0, inplace=True)
 
     historico_df = hist_estoque_df
 
@@ -53,11 +51,7 @@ def tratando_historico():
 def tratando_venda():
     vendas_df = query_venda()
     vendas_df.columns = ["data", "cod_produto", "qt_venda", "preco_unit", "cod_filial", "cliente", "num_nota", "rca","cod_fornecedor", "custo_fin", "supervisor"]
-
-    # vendas_df['preco_unit'] = vendas_df['preco_unit'].replace(",", ".", regex=True).astype(float).round(3)
-    # vendas_df['custo_fin'] = vendas_df['custo_fin'].replace(",", ".", regex=True).astype(float).round(3)
     vendas_df['data'] = pd.to_datetime(vendas_df['data'])
-    vendas_df['qt_venda'].fillna(0, inplace=True)
 
     # TODO EMPRESA
     vendas_df['empresa'] = 3
@@ -71,9 +65,7 @@ def tratando_venda():
 def tratando_entrada():
     ultima_entrada_df = query_entrada()
     ultima_entrada_df.columns = ["cod_filial", "data", "vl_ult_entrada", "qt_ult_entrada", "cod_produto","cod_fornecedor"]
-    # ultima_entrada_df['vl_ult_entrada'] = ultima_entrada_df['vl_ult_entrada'].replace(",", ".", regex=True).astype(float).round(3)
     ultima_entrada_df['data'] = pd.to_datetime(ultima_entrada_df['data'])
-    ultima_entrada_df.fillna(0, inplace=True)
 
     # TODO EMPRESA
     ultima_entrada_df['empresa'] = 3
@@ -89,7 +81,6 @@ def tratando_pedidos():
     df_pedidos_compras = query_pedido()
     df_pedidos_compras.columns = ["cod_filial", "cod_produto", "saldo", "num_pedido", "data", "cod_fornecedor"]
     df_pedidos_compras['data'] = pd.to_datetime(df_pedidos_compras['data'])
-    df_pedidos_compras.fillna(0, inplace=True)
 
     pedidos_df = df_pedidos_compras
 
@@ -106,11 +97,6 @@ def tratando_estoque():
     estoque_atual_df = query_estoque()
 
     estoque_atual_df.columns = ["cod_filial", "cod_produto", "qt_geral", "qt_indenizada", "qt_reservada", "qt_pendente", "qt_bloqueada", "qt_disponivel", "custo_ult_entrada", "cod_fornecedor", "preco_venda"]
-
-    # estoque_atual_df['qt_disponivel'] = estoque_atual_df['qt_disponivel'].replace(",", ".", regex=True).astype(int)
-    # estoque_atual_df['qt_geral'] = estoque_atual_df['qt_geral'].replace(",", ".", regex=True).astype(int)
-    # estoque_atual_df['custo_ult_ent'] = estoque_atual_df['custo_ult_ent'].replace(",", ".", regex=True).astype(float).round(3)
-    # estoque_atual_df['preco_venda'] = estoque_atual_df['preco_venda'].replace(",", ".", regex=True).astype(float).round(3)
     estoque_atual_df['data'] = datetime.date.today()
     estoque_atual_df['data'] = pd.to_datetime(estoque_atual_df['data'])
 
