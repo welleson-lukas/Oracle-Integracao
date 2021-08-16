@@ -21,7 +21,6 @@ def query_fornecedor():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
-    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -39,7 +38,6 @@ def query_produto():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
-    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -58,7 +56,6 @@ def query_historico():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
-    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -77,7 +74,6 @@ def query_venda():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
-    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -96,7 +92,6 @@ def query_entrada():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
-    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -114,7 +109,6 @@ def query_pedido():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
-    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
@@ -132,7 +126,6 @@ def query_estoque():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
-    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
