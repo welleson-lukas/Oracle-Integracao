@@ -11,7 +11,7 @@ def send_fornecedor():
     token = login_api()
 
     #TODO URL DA APLICAÇÃO
-    url = 'http://177.136.201.66/api/fornecedor/'
+    url = 'https://insight.ecluster.com.br/api/fornecedor/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ def send_produto():
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'http://177.136.201.66/api/produto/'
+    url = 'https://insight.ecluster.com.br/api/produto/'
     headers = {
         'Authorization': token,
         'content-Type': 'application/json',
@@ -91,7 +91,7 @@ def send_historico():
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'http://177.136.201.66/api/historico-estoque/'
+    url = 'https://insight.ecluster.com.br/api/historico-estoque/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ def send_vendas():
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = "http://177.136.201.66/api/venda/"
+    url = "https://insight.ecluster.com.br/api/venda/"
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -173,7 +173,7 @@ def send_entrada():
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = "http://177.136.201.66/api/ultima-entrada/"
+    url = "https://insight.ecluster.com.br/api/ultima-entrada/"
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ def send_pedidos():
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'http://177.136.201.66/api/pedido-compra/'
+    url = 'https://insight.ecluster.com.br/api/pedido-compra/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -253,7 +253,7 @@ def send_estoque():
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'http://177.136.201.66/api/estoque-atual/'
+    url = 'https://insight.ecluster.com.br/api/estoque-atual/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
