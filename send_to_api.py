@@ -6,8 +6,8 @@ import time
 
 
 # FORNECEDORES
-def send_fornecedor():
-    dados = tratando_fornecedor()
+def send_fornecedor(id):
+    dados = tratando_fornecedor(id)
     token = login_api()
 
     #TODO URL DA APLICAÇÃO
@@ -46,8 +46,8 @@ def send_fornecedor():
 
 
 # PRODUTOS
-def send_produto():
-    dados = tratando_produto()
+def send_produto(id):
+    dados = tratando_produto(id)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
@@ -86,8 +86,8 @@ def send_produto():
 
 
 # HISTORICO
-def send_historico():
-    dados = tratando_historico()
+def send_historico(id, inicio, fim):
+    dados = tratando_historico(id, inicio, fim)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
@@ -128,8 +128,8 @@ def send_historico():
 
 
 # VENDAS
-def send_vendas():
-    dados = tratando_venda()
+def send_vendas(id, inicio, fim):
+    dados = tratando_venda(id, inicio, fim)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
@@ -168,8 +168,8 @@ def send_vendas():
 
 
 # ENTRADAS
-def send_entrada():
-    dados = tratando_entrada()
+def send_entrada(id, inicio, fim):
+    dados = tratando_entrada(id, inicio, fim)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
@@ -208,8 +208,8 @@ def send_entrada():
 
 
 # PEDIDOS
-def send_pedidos():
-    dados = tratando_pedidos()
+def send_pedidos(id, inicio, fim):
+    dados = tratando_pedidos(id, inicio, fim)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
@@ -248,8 +248,8 @@ def send_pedidos():
 
 
 # ESTOQUE ATUAL
-def send_estoque():
-    dados = tratando_estoque()
+def send_estoque(id):
+    dados = tratando_estoque(id)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO

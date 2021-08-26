@@ -16,13 +16,18 @@ def execute_main():
 
     if confirm_dados == 'y' or confirm_dados == 'Y':
         if confirm_envio == 'y' or confirm_envio == 'Y':
-            send_fornecedor()
-            send_produto()
-            send_historico()
-            send_vendas()
-            send_entrada()
-            send_pedidos()
-            send_estoque()
+
+            id = input_id
+            inicio = input_inicio
+            fim = input_fim
+
+            send_fornecedor(id)
+            send_produto(id)
+            send_historico(id, inicio, fim)
+            send_vendas(id, inicio, fim)
+            send_entrada(id, inicio, fim)
+            send_pedidos(id, inicio, fim)
+            send_estoque(id)
 
             print("INTEGRAÇÃO CONCLUIDA COM SUCESSO!")
 
