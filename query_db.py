@@ -21,7 +21,6 @@ def query_fornecedor():
     for resultado in cur:
         lista.append(resultado)
     res_df = pd.DataFrame(lista)
-    res_df = res_df.fillna(0, inplace=True)
 
     cur.close()
     con.close()
