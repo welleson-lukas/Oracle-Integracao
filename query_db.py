@@ -49,8 +49,8 @@ def query_produto():
 def query_historico():
     cur, con = conn_db()
 
-    # cur.execute("SELECT pchistest.codprod, pchistest.data, pchistest.qtestger, pchistest.codfilial, pcprodut.codfornec FROM pchistest, pcprodut WHERE pchistest.codprod = pcprodut.codprod AND pchistest.data BETWEEN TO_DATE('08/04/2021','DD/MM/YYYY') AND TO_DATE('08/05/2021','DD/MM/YYYY') ORDER BY pchistest.codfilial, pchistest.codprod, pchistest.data")
-    cur.execute('SELECT pchistest.codprod, pchistest.data, pchistest.qtestger, pchistest.codfilial, pcprodut.codfornec FROM pchistest, pcprodut WHERE pchistest.codprod = pcprodut.codprod AND pchistest.data >= TRUNC(SYSDATE) -120 ORDER BY pchistest.codfilial, pchistest.codprod, pchistest.data')
+    cur.execute("SELECT pchistest.codprod, pchistest.data, pchistest.qtestger, pchistest.codfilial, pcprodut.codfornec FROM pchistest, pcprodut WHERE pchistest.codprod = pcprodut.codprod AND pchistest.data BETWEEN TO_DATE('08/04/2021','DD/MM/YYYY') AND TO_DATE('08/05/2021','DD/MM/YYYY') ORDER BY pchistest.codfilial, pchistest.codprod, pchistest.data")
+    #cur.execute('SELECT pchistest.codprod, pchistest.data, pchistest.qtestger, pchistest.codfilial, pcprodut.codfornec FROM pchistest, pcprodut WHERE pchistest.codprod = pcprodut.codprod AND pchistest.data >= TRUNC(SYSDATE) -120 ORDER BY pchistest.codfilial, pchistest.codprod, pchistest.data')
 
     lista = []
     for resultado in cur:
