@@ -12,6 +12,7 @@ def send_fornecedor(id):
 
     #TODO URL DA APLICAÇÃO
     url = 'https://insight.ecluster.com.br/api/integration/fornecedor/'
+    url_valid_test = 'https://insight.ecluster.com.br/api/integration/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -28,7 +29,7 @@ def send_fornecedor(id):
 
     dados = [lista_dados[i::n] for i in range(n)]
 
-    response = requests.get(url=url, headers=headers)
+    response = requests.get(url=url_valid_test, headers=headers)
 
     if response.status_code == 200:
         for i in dados:            
@@ -65,6 +66,7 @@ def send_produto(id):
 
     # TODO URL DA APLICAÇÃO
     url = 'https://insight.ecluster.com.br/api/integration/produto/'
+    url_valid_test = 'https://insight.ecluster.com.br/api/integration/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -81,7 +83,7 @@ def send_produto(id):
 
     dados = [lista_dados[i::n] for i in range(n)]
 
-    response = requests.get(url=url, headers=headers)
+    response = requests.get(url=url_valid_test, headers=headers)
 
     if response.status_code == 200:
         for i in dados:
@@ -118,6 +120,7 @@ def send_historico(id, inicio, fim):
 
     # TODO URL DA APLICAÇÃO
     url = 'https://insight.ecluster.com.br/api/integration/historico/'
+    url_valid_test = 'https://insight.ecluster.com.br/api/integration/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -134,7 +137,7 @@ def send_historico(id, inicio, fim):
 
     dados = [lista_dados[i::n] for i in range(n)]
 
-    response = requests.get(url=url, headers=headers)
+    response = requests.get(url=url_valid_test, headers=headers)
 
     if response.status_code == 200:
         for i in dados:
@@ -171,6 +174,7 @@ def send_vendas(id, inicio, fim):
 
     # TODO URL DA APLICAÇÃO
     url = 'https://insight.ecluster.com.br/api/integration/venda/'
+    url_valid_test = 'https://insight.ecluster.com.br/api/integration/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -187,7 +191,7 @@ def send_vendas(id, inicio, fim):
 
     dados = [lista_dados[i::n] for i in range(n)]
 
-    response = requests.get(url=url, headers=headers)
+    response = requests.get(url=url_valid_test, headers=headers)
 
     if response.status_code == 200:
         for i in dados:
@@ -224,6 +228,7 @@ def send_entrada(id, inicio, fim):
 
     # TODO URL DA APLICAÇÃO
     url = 'https://insight.ecluster.com.br/api/integration/entrada/'
+    url_valid_test = 'https://insight.ecluster.com.br/api/integration/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -240,7 +245,7 @@ def send_entrada(id, inicio, fim):
 
     dados = [lista_dados[i::n] for i in range(n)]
 
-    response = requests.get(url=url, headers=headers)
+    response = requests.get(url=url_valid_test, headers=headers)
 
     if response.status_code == 200:
         for i in dados:
@@ -277,6 +282,7 @@ def send_pedidos(id, inicio, fim):
 
     # TODO URL DA APLICAÇÃO
     url = 'https://insight.ecluster.com.br/api/integration/pedido/'
+    url_valid_test = 'https://insight.ecluster.com.br/api/integration/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -293,7 +299,7 @@ def send_pedidos(id, inicio, fim):
 
     dados = [lista_dados[i::n] for i in range(n)]
 
-    response = requests.get(url=url, headers=headers)
+    response = requests.get(url=url_valid_test, headers=headers)
 
     if response.status_code == 200:
         for i in dados:
@@ -330,6 +336,7 @@ def send_estoque(id):
 
     # TODO URL DA APLICAÇÃO
     url = 'https://insight.ecluster.com.br/api/integration/estoque/'
+    url_valid_test = 'https://insight.ecluster.com.br/api/integration/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -345,8 +352,7 @@ def send_estoque(id):
         n = 1
 
     dados = [lista_dados[i::n] for i in range(n)]
-
-    response = requests.get(url=url, headers=headers)
+    response = requests.get(url=url_valid_test, headers=headers)
 
     if response.status_code == 200:
         for i in dados:
