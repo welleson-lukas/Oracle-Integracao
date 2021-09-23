@@ -7,17 +7,26 @@ import time
 
 # FORNECEDORES
 def send_fornecedor(id):
-    dados = tratando_fornecedor(id)
+    lista_dados = tratando_fornecedor(id)
     token = login_api()
 
     #TODO URL DA APLICAÇÃO
-    url = 'https://insight.ecluster.com.br/api/fornecedor/'
+    url = 'https://insight.ecluster.com.br/api/integration/fornecedor/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
         'dataType': 'json',
         'Accept': 'application/json'
     }
+
+    tamanho = len(lista_dados)
+
+    if tamanho > 20:
+        n = int(round(len(lista_dados) / 20, 0))
+    else:
+        n = 1
+
+    dados = [lista_dados[i::n] for i in range(n)]
 
     response = requests.get(url=url, headers=headers)
 
@@ -27,8 +36,11 @@ def send_fornecedor(id):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
+
+                elif response.status_code == 201:
+                    print(response.status_code, 'Enviado com sucesso!')
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -37,8 +49,9 @@ def send_fornecedor(id):
                 time.sleep(150)
 
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
 
         return response.status_code
     else:
@@ -47,17 +60,26 @@ def send_fornecedor(id):
 
 # PRODUTOS
 def send_produto(id):
-    dados = tratando_produto(id)
+    lista_dados = tratando_produto(id)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'https://insight.ecluster.com.br/api/produto/'
+    url = 'https://insight.ecluster.com.br/api/integration/produto/'
     headers = {
         'Authorization': token,
-        'content-Type': 'application/json',
+        'Content-Type': 'application/json',
         'dataType': 'json',
         'Accept': 'application/json'
     }
+
+    tamanho = len(lista_dados)
+
+    if tamanho > 20:
+        n = int(round(len(lista_dados) / 20, 0))
+    else:
+        n = 1
+
+    dados = [lista_dados[i::n] for i in range(n)]
 
     response = requests.get(url=url, headers=headers)
 
@@ -67,8 +89,11 @@ def send_produto(id):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
+
+                elif response.status_code == 201:
+                    print(response.status_code, 'Enviado com sucesso!')
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -77,8 +102,9 @@ def send_produto(id):
                 time.sleep(150)
 
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
 
         return response.status_code
     else:
@@ -87,11 +113,11 @@ def send_produto(id):
 
 # HISTORICO
 def send_historico(id, inicio, fim):
-    dados = tratando_historico(id, inicio, fim)
+    lista_dados = tratando_historico(id, inicio, fim)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'https://insight.ecluster.com.br/api/historico-estoque/'
+    url = 'https://insight.ecluster.com.br/api/integration/historico/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -99,7 +125,14 @@ def send_historico(id, inicio, fim):
         'Accept': 'application/json'
     }
 
-    response = requests.get(url=url, headers=headers)
+    tamanho = len(lista_dados)
+
+    if tamanho > 20:
+        n = int(round(len(lista_dados) / 20, 0))
+    else:
+        n = 1
+
+    dados = [lista_dados[i::n] for i in range(n)]
 
     response = requests.get(url=url, headers=headers)
 
@@ -109,8 +142,11 @@ def send_historico(id, inicio, fim):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
+
+                elif response.status_code == 201:
+                    print(response.status_code, 'Enviado com sucesso!')
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -119,8 +155,9 @@ def send_historico(id, inicio, fim):
                 time.sleep(150)
 
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
 
         return response.status_code
     else:
@@ -129,17 +166,26 @@ def send_historico(id, inicio, fim):
 
 # VENDAS
 def send_vendas(id, inicio, fim):
-    dados = tratando_venda(id, inicio, fim)
+    lista_dados = tratando_venda(id, inicio, fim)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = "https://insight.ecluster.com.br/api/venda/"
+    url = 'https://insight.ecluster.com.br/api/integration/venda/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
         'dataType': 'json',
         'Accept': 'application/json'
     }
+
+    tamanho = len(lista_dados)
+
+    if tamanho > 20:
+        n = int(round(len(lista_dados) / 20, 0))
+    else:
+        n = 1
+
+    dados = [lista_dados[i::n] for i in range(n)]
 
     response = requests.get(url=url, headers=headers)
 
@@ -149,8 +195,11 @@ def send_vendas(id, inicio, fim):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
+
+                elif response.status_code == 201:
+                    print(response.status_code, 'Enviado com sucesso!')
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -159,8 +208,9 @@ def send_vendas(id, inicio, fim):
                 time.sleep(150)
 
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
 
         return response.status_code
     else:
@@ -169,17 +219,26 @@ def send_vendas(id, inicio, fim):
 
 # ENTRADAS
 def send_entrada(id, inicio, fim):
-    dados = tratando_entrada(id, inicio, fim)
+    lista_dados = tratando_entrada(id, inicio, fim)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = "https://insight.ecluster.com.br/api/ultima-entrada/"
+    url = 'https://insight.ecluster.com.br/api/integration/entrada/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
         'dataType': 'json',
         'Accept': 'application/json'
     }
+
+    tamanho = len(lista_dados)
+
+    if tamanho > 20:
+        n = int(round(len(lista_dados) / 20, 0))
+    else:
+        n = 1
+
+    dados = [lista_dados[i::n] for i in range(n)]
 
     response = requests.get(url=url, headers=headers)
 
@@ -189,8 +248,11 @@ def send_entrada(id, inicio, fim):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
+
+                elif response.status_code == 201:
+                    print(response.status_code, 'Enviado com sucesso!')
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -199,8 +261,9 @@ def send_entrada(id, inicio, fim):
                 time.sleep(150)
 
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
 
         return response.status_code
     else:
@@ -209,17 +272,26 @@ def send_entrada(id, inicio, fim):
 
 # PEDIDOS
 def send_pedidos(id, inicio, fim):
-    dados = tratando_pedidos(id, inicio, fim)
+    lista_dados = tratando_pedido(id, inicio, fim)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'https://insight.ecluster.com.br/api/pedido-compra/'
+    url = 'https://insight.ecluster.com.br/api/integration/pedido/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
         'dataType': 'json',
         'Accept': 'application/json'
     }
+
+    tamanho = len(lista_dados)
+
+    if tamanho > 20:
+        n = int(round(len(lista_dados) / 20, 0))
+    else:
+        n = 1
+
+    dados = [lista_dados[i::n] for i in range(n)]
 
     response = requests.get(url=url, headers=headers)
 
@@ -229,8 +301,11 @@ def send_pedidos(id, inicio, fim):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
+
+                elif response.status_code == 201:
+                    print(response.status_code, 'Enviado com sucesso!')
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -239,8 +314,9 @@ def send_pedidos(id, inicio, fim):
                 time.sleep(150)
 
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
 
         return response.status_code
     else:
@@ -249,17 +325,26 @@ def send_pedidos(id, inicio, fim):
 
 # ESTOQUE ATUAL
 def send_estoque(id):
-    dados = tratando_estoque(id)
+    lista_dados = tratando_estoque(id)
     token = login_api()
 
     # TODO URL DA APLICAÇÃO
-    url = 'https://insight.ecluster.com.br/api/estoque-atual/'
+    url = 'https://insight.ecluster.com.br/api/integration/estoque/'
     headers = {
         'Authorization': token,
         'Content-Type': 'application/json',
         'dataType': 'json',
         'Accept': 'application/json'
     }
+
+    tamanho = len(lista_dados)
+
+    if tamanho > 20:
+        n = int(round(len(lista_dados) / 20, 0))
+    else:
+        n = 1
+
+    dados = [lista_dados[i::n] for i in range(n)]
 
     response = requests.get(url=url, headers=headers)
 
@@ -269,8 +354,11 @@ def send_estoque(id):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
+
+                elif response.status_code == 201:
+                    print(response.status_code, 'Enviado com sucesso!')
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -279,8 +367,9 @@ def send_estoque(id):
                 time.sleep(150)
 
                 response = requests.post(url=url, headers=headers, data=data)
-                print(response.status_code, response.text)
-                print(data)
+
+                if response.status_code == 400 or 500:
+                    print(response.status_code, response.text)
 
         return response.status_code
     else:
