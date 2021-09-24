@@ -57,12 +57,13 @@ def tratando_historico(id, inicio, fim):
     else:
         hist_estoque_df.columns = ["cod_produto", "data", "qt_estoque", "cod_filial", "cod_fornecedor"]
         hist_estoque_df['data'] = pd.to_datetime(hist_estoque_df['data'])
+        hist_estoque_df['cod_filial'] = hist_estoque_df['cod_filial'].astype(str).astype(int)
 
         lista_fornec = get_fornecedores(id)
         lista_prod = get_produtos(id)
         lista_filial = get_filial(id)
 
-        historico_df = historico_df.query("cod_fornecedor == @lista_fornec")
+        historico_df = hist_estoque_df.query("cod_fornecedor == @lista_fornec")
         historico_df = historico_df.query("cod_produto == @lista_prod")
         historico_df = historico_df.query("cod_filial == @lista_filial")
 
@@ -85,6 +86,7 @@ def tratando_venda(id, inicio, fim):
     else:
         vendas_df.columns = ["data", "cod_produto", "qt_venda", "preco_unit", "cod_filial", "cliente", "num_nota", "rca","cod_fornecedor", "custo_fin", "supervisor"]
         vendas_df['data'] = pd.to_datetime(vendas_df['data'])
+        vendas_df['cod_filial'] = vendas_df['cod_filial'].astype(str).astype(int)
 
         lista_fornec = get_fornecedores(id)
         lista_prod = get_produtos(id)
@@ -112,6 +114,7 @@ def tratando_entrada(id, inicio, fim):
     else:
         ultima_entrada_df.columns = ["cod_filial", "data", "vl_ult_entrada", "qt_ult_entrada", "cod_produto","cod_fornecedor"]
         ultima_entrada_df['data'] = pd.to_datetime(ultima_entrada_df['data'])
+        ultima_entrada_df['cod_filial'] = ultima_entrada_df['cod_filial'].astype(str).astype(int)
 
         lista_fornec = get_fornecedores(id)
         lista_prod = get_produtos(id)
@@ -139,6 +142,7 @@ def tratando_pedidos(id, inicio, fim):
     else:
         df_pedidos_compras.columns = ["cod_filial", "cod_produto", "saldo", "num_pedido", "data", "cod_fornecedor"]
         df_pedidos_compras['data'] = pd.to_datetime(df_pedidos_compras['data'])
+        df_pedidos_compras['cod_filial'] = df_pedidos_compras['cod_filial'].astype(str).astype(int)
 
         pedidos_df = df_pedidos_compras
 
@@ -169,6 +173,7 @@ def tratando_estoque(id):
         estoque_atual_df.columns = ["cod_filial", "cod_produto", "qt_geral", "qt_indenizada", "qt_reservada", "qt_pendente", "qt_bloqueada", "qt_disponivel", "custo_ult_entrada", "cod_fornecedor", "preco_venda"]
         estoque_atual_df['data'] = datetime.date.today()
         estoque_atual_df['data'] = pd.to_datetime(estoque_atual_df['data'])
+        estoque_atual_df['cod_filial'] = estoque_atual_df['cod_filial'].astype(str).astype(int)
 
         lista_fornec = get_fornecedores(id)
         lista_prod = get_produtos(id)

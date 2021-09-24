@@ -37,11 +37,7 @@ def send_fornecedor(id):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
-
-                elif response.status_code == 201:
-                    print(response.status_code, 'Enviado com sucesso!')
+                print(response.status_code)
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -51,8 +47,7 @@ def send_fornecedor(id):
 
                 response = requests.post(url=url, headers=headers, data=data)
 
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
+                print(response.status_code)
 
         return response.status_code
     else:
@@ -91,11 +86,7 @@ def send_produto(id):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
-
-                elif response.status_code == 201:
-                    print(response.status_code, 'Enviado com sucesso!')
+                print(response.status_code)
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -105,8 +96,7 @@ def send_produto(id):
 
                 response = requests.post(url=url, headers=headers, data=data)
 
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
+                print(response.status_code)
 
         return response.status_code
     else:
@@ -145,11 +135,7 @@ def send_historico(id, inicio, fim):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
-
-                elif response.status_code == 201:
-                    print(response.status_code, 'Enviado com sucesso!')
+                print(response.status_code)
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -159,8 +145,7 @@ def send_historico(id, inicio, fim):
 
                 response = requests.post(url=url, headers=headers, data=data)
 
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
+                print(response.status_code)
 
         return response.status_code
     else:
@@ -199,11 +184,7 @@ def send_vendas(id, inicio, fim):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
-
-                elif response.status_code == 201:
-                    print(response.status_code, 'Enviado com sucesso!')
+                print(response.status_code)
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -213,8 +194,7 @@ def send_vendas(id, inicio, fim):
 
                 response = requests.post(url=url, headers=headers, data=data)
 
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
+                print(response.status_code)
 
         return response.status_code
     else:
@@ -253,11 +233,7 @@ def send_entrada(id, inicio, fim):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
-
-                elif response.status_code == 201:
-                    print(response.status_code, 'Enviado com sucesso!')
+                print(response.status_code)
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -267,8 +243,7 @@ def send_entrada(id, inicio, fim):
 
                 response = requests.post(url=url, headers=headers, data=data)
 
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
+                print(response.status_code)
 
         return response.status_code
     else:
@@ -307,11 +282,7 @@ def send_pedidos(id, inicio, fim):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
-
-                elif response.status_code == 201:
-                    print(response.status_code, 'Enviado com sucesso!')
+                print(response.status_code)
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -321,8 +292,7 @@ def send_pedidos(id, inicio, fim):
 
                 response = requests.post(url=url, headers=headers, data=data)
 
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
+                print(response.status_code)
 
         return response.status_code
     else:
@@ -360,11 +330,7 @@ def send_estoque(id):
 
             try:
                 response = requests.post(url=url, headers=headers, data=data)
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
-
-                elif response.status_code == 201:
-                    print(response.status_code, 'Enviado com sucesso!')
+                print(response.status_code)
 
             except requests.ConnectionError:
                 print("SEM CONEXÃO COM O SERVIDOR")
@@ -374,8 +340,7 @@ def send_estoque(id):
 
                 response = requests.post(url=url, headers=headers, data=data)
 
-                if response.status_code == 400 or 500:
-                    print(response.status_code, response.text)
+                print(response.status_code)
 
         return response.status_code
     else:
