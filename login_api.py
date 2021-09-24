@@ -6,6 +6,7 @@ def login_api():
     senha = 'Cluster*2018'
 
     url = "https://insight.ecluster.com.br/api-token-auth"
+    #url = "http://127.0.0.1:8000/api-token-auth"
     user_data = {
         "username": usuario,
         "password": senha

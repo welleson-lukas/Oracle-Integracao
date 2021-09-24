@@ -40,5 +40,66 @@ def execute_main():
         return None
 
 
+def get_fornecedores(id):
+    token = login_api()
+
+    url = f'https://insight.ecluster.com.br/api/integration/fornecedor/empresa/{id}/'
+    headers = {
+        'Authorization': token,
+        'Content-Type': 'application/json',
+        'dataType': 'json',
+        'Accept': 'application/json'
+    }
+
+    resultado = requests.get(url=url, headers=headers).json()
+
+    lista_fornecedores = []
+    for i in resultado:
+        lista_fornecedores.append(i['cod_fornecedor'])
+
+    return lista_fornecedores
+
+
+def get_produtos(id):
+    token = login_api()
+
+    url = f'https://insight.ecluster.com.br/api/integration/produto/empresa/{id}/'
+    headers = {
+        'Authorization': token,
+        'Content-Type': 'application/json',
+        'dataType': 'json',
+        'Accept': 'application/json'
+    }
+
+    resultado = requests.get(url=url, headers=headers).json()
+
+    lista_produtos = []
+    for i in resultado:
+        lista_produtos.append(i['cod_produto'])
+
+    return lista_produtos
+
+
+def get_filial(id):
+    token = login_api()
+
+    url = f'https://insight.ecluster.com.br/api/integration/filial/empresa/{id}/'
+    headers = {
+        'Authorization': token,
+        'Content-Type': 'application/json',
+        'dataType': 'json',
+        'Accept': 'application/json'
+    }
+
+    resultado = requests.get(url=url, headers=headers).json()
+
+    lista_filial = []
+    for i in resultado:
+        lista_filial.append(i['cod_filial'])
+
+    return lista_filial
+
+
+
 if __name__ == '__main__':
     execute_main()
